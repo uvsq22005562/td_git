@@ -25,9 +25,19 @@ def power(A, B):
     return C
 
 
+def power2(A):
+    """ fais la puissance de 2 nombres """
+    C = A ** 2
+    return C
+
+
 def soustraction(A, B):
     """ fais la soustraction de 2 nombres """
     C = A - B
     return C
 
-def 
+
+def racine(A):
+    """ fais la racine du nombre """
+    B = math.sqrt(A)
+    return B

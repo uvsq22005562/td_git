@@ -6,43 +6,6 @@ p = 0
 s = 0
 
 
-def somme(A, B):
-    """ Fais la somme de 2 nombre """
-    C = A + B
-    return C
-
-
-def divide(A, B):
-    """ Fais la division de 2 nombres """
-    C = A / B
-    return C
-
-
-def multiplie(A, B):
-    """ fais la multiplication de 2 nombres"""
-    C = A * B
-    return C
-
-
-def power(A, B):
-    """ fais la puissance de 2 nombres """
-    C = A ** B
-    return C
-
-
-def soustraction(A, B):
-    """ fais la soustraction de 2 nombres """
-    C = A - B
-    return C
-
-
-def ERROR():
-    """fonction erreur"""
-    reset()
-    affichage.config(text = "ERROR")
-    pass
-
-
 def reset():
     """fonction reset"""
     global A, s, p
@@ -52,46 +15,137 @@ def reset():
     pass
 
 
-def ajout(V):
+def resetlow():
+    """fonction reset"""
+    global A, s, p
+    A = [[], []]
+    p = 0
+    s = 0
+    pass
+
+
+def ajout0():
     """ajout de chiffre ou de signe"""
     global A
-    A[p].append(V)
+    A[p].append(0)
+    affiche()
+    pass
 
+
+def ajout1():
+    """ajout de chiffre ou de signe"""
+    global A
+    A[p].append(1)
+    affiche()
+    pass
+
+
+def ajout2():
+    """ajout de chiffre ou de signe"""
+    global A
+    A[p].append(2)
+    affiche()
+    pass
+
+
+def ajout3():
+    """ajout de chiffre ou de signe"""
+    global A
+    A[p].append(3)
+    affiche()
+    pass
+
+
+def ajout4():
+    """ajout de chiffre ou de signe"""
+    global A
+    A[p].append(4)
+    affiche()
+    pass
+
+
+def ajout5():
+    """ajout de chiffre ou de signe"""
+    global A
+    A[p].append(5)
+    affiche()
+    pass
+
+
+def ajout6():
+    """ajout de chiffre ou de signe"""
+    global A
+    A[p].append(6)
+    affiche()
+    pass
+
+
+def ajout7():
+    """ajout de chiffre ou de signe"""
+    global A
+    A[p].append(7)
+    affiche()
+    pass
+
+
+def ajout8():
+    """ajout de chiffre ou de signe"""
+    global A
+    A[p].append(8)
+    affiche()
+    pass
+
+
+def ajout9():
+    """ajout de chiffre ou de signe"""
+    global A
+    A[p].append(9)
+    affiche()
     pass
 
 
 def signedivide():
     """change le signe en division"""
-    global s
+    global s, p
     s = 1
+    affiche()
+    p = 1
     pass
 
 
 def signemultiplie():
     """change le signe en multiplier"""
-    global s
+    global s, p
     s = 2
+    affiche()
+    p = 1
     pass
 
 
 def signesomme():
     """change le signe en somme"""
-    global s
+    global s, p
     s = 3
+    affiche()
+    p = 1
     pass
 
 
 def signesoustraction():
     """change le en soustraction"""
-    global s
+    global s, p
     s = 4
+    affiche()
+    p = 1
     pass
 
 
 def signepower():
     """change le signe en puissance"""
-    global s
+    global s, p
     s = 5
+    affiche()
+    p = 1
     pass
 
 
@@ -119,24 +173,37 @@ def sqrt():
     pass
 
 
-def affiche(A):
+def affiche():
+    global A, s, p
+    B = 0
     if p == 0:
-        A = str(A)
-        affichage.config(text = str(A[0]))
-    elif p == 1:
-        A[0] = str(A[0])
-        A[1] = str(A[1])
-        if s == 1:
-            B = A[0] + "/" + A[1]
-        elif s == 2:
-            B = A[0] + "*" + A[1]
-        elif s == 3:
-            B = A[0] + "+" + A[1]
-        elif s == 4:
-            B = A[0] + "^" + A[1]
-        affichage.config(text = B)
-    else:
+        B = str(A[0])
+        affichage.config(text = str(B))
+        if s != 0:
+            if s == 1:
+                B = B + "/"
+            elif s == 2:
+                B = B + "*"
+            elif s == 3:
+                B = B + "+"
+            elif s == 4:
+                B = B + "^"
 
+    elif p == 1:
+        C = str(A[0])
+        D = str(A[1])
+        if s == 1:
+            B = C + "/" + D
+        elif s == 2:
+            B = C + "*" + D
+        elif s == 3:
+            B = C + "+" + D
+        elif s == 4:
+            B = C + "^" + D
+    
+    affichage.config(text = B)
+
+    pass
 
 
 racine = tk.Tk()
@@ -147,16 +214,16 @@ couleur4 = '#316258'
 
 # ----- création des widgets -----
 affichage = tk.Label(racine, text='', height='3', font=('courier', '8'))
-boutton_0 = tk.Button(racine, text='0', height='2', width='4', bg=couleur1, command=ajout(0))
-boutton_1 = tk.Button(racine, text='1', height='2', width='4', bg=couleur1, command=ajout(1))
-boutton_2 = tk.Button(racine, text='2', height='2', width='4', bg=couleur1, command=ajout(2))
-boutton_3 = tk.Button(racine, text='3', height='2', width='4', bg=couleur1, command=ajout(3))
-boutton_4 = tk.Button(racine, text='4', height='2', width='4', bg=couleur1, command=ajout(4))
-boutton_5 = tk.Button(racine, text='5', height='2', width='4', bg=couleur1, command=ajout(5))
-boutton_6 = tk.Button(racine, text='6', height='2', width='4', bg=couleur1, command=ajout(6))
-boutton_7 = tk.Button(racine, text='7', height='2', width='4', bg=couleur1, command=ajout(7))
-boutton_8 = tk.Button(racine, text='8', height='2', width='4', bg=couleur1, command=ajout(8))
-boutton_9 = tk.Button(racine, text='9', height='2', width='4', bg=couleur1, command=ajout(9))
+boutton_0 = tk.Button(racine, text='0', height='2', width='4', bg=couleur1, command=ajout0)
+boutton_1 = tk.Button(racine, text='1', height='2', width='4', bg=couleur1, command=ajout1)
+boutton_2 = tk.Button(racine, text='2', height='2', width='4', bg=couleur1, command=ajout2)
+boutton_3 = tk.Button(racine, text='3', height='2', width='4', bg=couleur1, command=ajout3)
+boutton_4 = tk.Button(racine, text='4', height='2', width='4', bg=couleur1, command=ajout4)
+boutton_5 = tk.Button(racine, text='5', height='2', width='4', bg=couleur1, command=ajout5)
+boutton_6 = tk.Button(racine, text='6', height='2', width='4', bg=couleur1, command=ajout6)
+boutton_7 = tk.Button(racine, text='7', height='2', width='4', bg=couleur1, command=ajout7)
+boutton_8 = tk.Button(racine, text='8', height='2', width='4', bg=couleur1, command=ajout8)
+boutton_9 = tk.Button(racine, text='9', height='2', width='4', bg=couleur1, command=ajout9)
 boutton_clear = tk.Button(racine, text='C',
                           height='2', width='4', bg=couleur2)
 boutton_addition = tk.Button(racine, text='+',
@@ -170,9 +237,9 @@ boutton_division = tk.Button(racine, text='/',
 boutton_calcul = tk.Button(racine, text='=',
                            height='2', width='4', bg=couleur4)
 boutton_point = tk.Button(racine, text='.', height='2', width='4', bg=couleur3)
-boutton_carre = tk.Button(racine, text='²', height='2', width='4', bg=couleur3)
+boutton_carre = tk.Button(racine, text='²', height='2', width='4', bg=couleur3, command=power2)
 boutton_racine_carre = tk.Button(racine, text='sqrt',
-                                 height='2', width='4', bg=couleur3, command=sqrt())
+                                 height='2', width='4', bg=couleur3, command=sqrt)
 boutton_exposant = tk.Button(racine, text='^',
                              height='2', width='4', bg=couleur3)
 

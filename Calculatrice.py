@@ -176,32 +176,42 @@ def sqrt():
 def affiche():
     global A, s, p
     B = 0
+    W = ""
     if p == 0:
         B = str(A[0])
-        affichage.config(text = str(B))
+        for i in B:
+            W += i
+        F = W
         if s != 0:
             if s == 1:
-                B = B + "/"
+                F = F + "/"
             elif s == 2:
-                B = B + "*"
+                F = F + "*"
             elif s == 3:
-                B = B + "+"
+                F = F + "+"
             elif s == 4:
-                B = B + "^"
+                F = F + "^"
+        affichage.config(text = F)
 
     elif p == 1:
         C = str(A[0])
+        for i in C:
+            W += i
+        CF = W
+        W = ""
         D = str(A[1])
+        for i in D:
+            W += i
+        DF = W
         if s == 1:
-            B = C + "/" + D
+            F = CF + "/" + DF
         elif s == 2:
-            B = C + "*" + D
+            F = CF + "*" + DF
         elif s == 3:
-            B = C + "+" + D
+            F = CF + "+" + DF
         elif s == 4:
-            B = C + "^" + D
-    
-    affichage.config(text = B)
+            F = CF + "^" + DF
+    affichage.config(text = F)
 
     pass
 

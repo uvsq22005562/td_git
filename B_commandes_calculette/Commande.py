@@ -29,4 +29,3 @@ def soustraction(A, B):
     """ fais la soustraction de 2 nombres """
     A - B = C
     return C
-
